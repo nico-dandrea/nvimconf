@@ -77,6 +77,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+vim.filetype.add({
+  pattern = {
+    ['.*%.blade%.php'] = 'blade',
+  },
+})
+
 -- Diagnostic config
 vim.diagnostic.config({
     virtual_text = {

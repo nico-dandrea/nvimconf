@@ -56,7 +56,11 @@ return require('packer').startup(function(use)
         }
     }
 
-    use('jwalton512/vim-blade')             -- Blade syntax
+    -- Blade syntax
+    use {
+        "jwalton512/vim-blade",
+        ft = "blade",
+    }
     use('emmanueltouzery/agitator.nvim')    -- Blade-aware Git diffing
     use('themaxmarchuk/tailwindcss-colors.nvim') -- Tailwind color previews
     use('gbprod/phpactor.nvim')

@@ -257,8 +257,10 @@ _G.packer_plugins = {
     url = "https://github.com/ThePrimeagen/vim-be-good"
   },
   ["vim-blade"] = {
-    loaded = true,
-    path = "/home/cr45h33/.local/share/nvim/site/pack/packer/start/vim-blade",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/cr45h33/.local/share/nvim/site/pack/packer/opt/vim-blade",
     url = "https://github.com/jwalton512/vim-blade"
   },
   ["vim-fugitive"] = {
@@ -282,6 +284,18 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for codeium.nvim]], true)
 try_loadstring("\27LJ\2\nù\1\0\0\4\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\6\0009\0\a\0)\1\1\0=\1\b\0K\0\1\0 codeium_enable_virtual_text\6g\bvim\17virtual_text\1\0\1\17virtual_text\0\1\0\1\fenabled\2\nsetup\fcodeium\frequire\0", "config", "codeium.nvim")
 time([[Config for codeium.nvim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType blade ++once lua require("packer.load")({'vim-blade'}, { ft = "blade" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/cr45h33/.local/share/nvim/site/pack/packer/opt/vim-blade/ftdetect/blade.vim]], true)
+vim.cmd [[source /home/cr45h33/.local/share/nvim/site/pack/packer/opt/vim-blade/ftdetect/blade.vim]]
+time([[Sourcing ftdetect script at: /home/cr45h33/.local/share/nvim/site/pack/packer/opt/vim-blade/ftdetect/blade.vim]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

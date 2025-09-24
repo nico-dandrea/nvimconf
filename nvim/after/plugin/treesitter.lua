@@ -24,6 +24,7 @@ require'nvim-treesitter.configs'.setup {
 
     indent = {
         enable = true,
+        disable = { "blade" },
     },
 
     incremental_selection = {
@@ -46,6 +47,6 @@ require'nvim-treesitter.configs'.setup {
     -- List of parsers to ignore installing (or "all")
     highlight = {
         enable = true,
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = { "blade" },
     },
 }
